@@ -7,6 +7,7 @@ fish <- readxl::read_xlsx("data/ltem_2021_update_fish_data.xlsx")
 
 
 data_check <- function(x, type) {
+            
             if (type == "Quantity") {
                         merge(x, refs_meta, by = "Species") %>% 
                                     mutate(q_flag = ifelse(Total > Quantity_max, "FLAG", "NO")) %>% 
